@@ -1146,6 +1146,41 @@ textarea.pro-input {
   color: var(--text-muted);
   font-size: 0.86rem;
 }
+/* ==========================================================================
+   ZYRAC BRAND POWERED-BY FOOTER STYLING
+   ========================================================================== */
+.footer-powered {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.zyrac-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  transition: all 0.3s var(--ease-apple);
+}
+
+.zyrac-brand-link img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.3s var(--ease-apple);
+}
+
+.zyrac-brand-link:hover {
+  color: var(--gold-bright);
+}
+
+.zyrac-brand-link:hover img {
+  transform: scale(1.1);
+}
 
 /* Scroll Reveal Transitions */
 .reveal {
