@@ -102,22 +102,28 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(el => el.classList.add('visible'));
   }
 
-  // 7. Interactive Gallery Category Filtering
+  // 7. Interactive Pinterest Gallery Category Filtering
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const galleryCards = document.querySelectorAll('.gallery-card');
+  const masonryItems = document.querySelectorAll('.masonry-item');
+
   if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
+        // Remove active class from all buttons
         filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
         btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
+        
+        const filterValue = btn.getAttribute('data-filter');
 
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || filter === category) {
-            card.style.display = 'block';
+        masonryItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+          
+          // Show or hide based on category
+          if (filterValue === 'all' || filterValue === itemCategory) {
+            item.style.display = 'block'; // Keeps break-inside: avoid working perfectly
           } else {
-            card.style.display = 'none';
+            item.style.display = 'none';
           }
         });
       });

@@ -357,42 +357,505 @@ img {
   border-radius: 4px;
   transition: all 0.35s var(--ease-apple);
 }
-
 /* ==========================================================================
-   4K VIDEO CINEMATIC HERO + PROPHET MUHAMMAD (ﷺ) QUOTE GLASS CARD
+   TOP-LEVEL PREMIUM HEADER ENHANCEMENTS
    ========================================================================== */
+
+/* 1. Animated Glowing Border Island */
+.premium-glass-island {
+  position: relative;
+  overflow: visible; /* Allow glow to bleed */
+  background: rgba(11, 18, 26, 0.65) !important;
+  border: none !important;
+}
+
+.island-glow-border {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, rgba(226, 184, 135, 0.1), rgba(226, 184, 135, 0.6), rgba(226, 184, 135, 0.1));
+  background-size: 200% 100%;
+  z-index: -1;
+  animation: borderSweep 4s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1.5px;
+}
+
+@keyframes borderSweep {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* 2. Logo Frame Sweep Animation */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: logoShine 5s infinite;
+}
+
+@keyframes logoShine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+/* 3. Navigation Links with SVG Icons */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s;
+  opacity: 0.7;
+}
+
+/* Hover Physics */
+.nav-link:hover {
+  background: rgba(226, 184, 135, 0.1) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+.nav-link:hover .nav-icon {
+  transform: scale(1.15) translateY(-1px);
+  stroke: var(--gold-bright);
+  opacity: 1;
+}
+
+/* Active State Pill */
+.nav-link.active {
+  background: linear-gradient(135deg, rgba(226, 184, 135, 0.9), var(--gold-primary)) !important;
+  color: #090D14 !important;
+}
+.nav-link.active .nav-icon {
+  stroke: #090D14;
+  opacity: 1;
+}
+
+/* 4. Animated CTA Button */
+.pulse-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-shadow: 0 0 0 0 rgba(226, 184, 135, 0.4);
+  animation: ctaPulse 3s infinite;
+}
+.pulse-cta svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+  transition: transform 0.3s ease;
+}
+.pulse-cta:hover svg {
+  transform: translateX(4px);
+}
+
+@keyframes ctaPulse {
+  0% { box-shadow: 0 0 0 0 rgba(226, 184, 135, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(226, 184, 135, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(226, 184, 135, 0); }
+}
+
+/* 5. Fluid Mobile Drawer Overrides */
+@media (max-width: 860px) {
+  .nav-menu {
+    border-left: 1px solid rgba(226, 184, 135, 0.2) !important;
+    background: rgba(7, 11, 16, 0.85) !important;
+  }
+  .nav-link {
+    font-size: 1.1rem !important;
+    padding: 1rem 1.25rem !important;
+  }
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+  /* Staggered load effect on mobile menu open */
+  .nav-menu.open li {
+    opacity: 0;
+    animation: slideInFade 0.4s forwards;
+  }
+  .nav-menu.open li:nth-child(1) { animation-delay: 0.1s; }
+  .nav-menu.open li:nth-child(2) { animation-delay: 0.15s; }
+  .nav-menu.open li:nth-child(3) { animation-delay: 0.2s; }
+  .nav-menu.open li:nth-child(4) { animation-delay: 0.25s; }
+  .nav-menu.open li:nth-child(5) { animation-delay: 0.3s; }
+  .nav-menu.open li:nth-child(6) { animation-delay: 0.35s; }
+}
+
+@keyframes slideInFade {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+/* ==========================================================================
+   MASTERPIECE ISLAMIC & PARENT-CENTRIC HERO SECTION (style.css)
+   ========================================================================== */
+
 .hero-pro {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 9rem 0 5.5rem;
+  padding: 8.5rem 0 5rem;
   overflow: hidden;
+  background-color: #070B10;
 }
 
-/* 4K Background Video Container */
-.hero-video-wrapper {
+/* 1. Background Image & Islamic Geometric Texture */
+.hero-image-wrapper {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   overflow: hidden;
 }
 
-.hero-video {
+.hero-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.04);
-  filter: saturate(1.15) contrast(1.05) brightness(0.45);
+  object-position: center;
+  /* Soft studio blur & scale so even if Logo.jpg is used, it looks like a luxury abstract backdrop */
+  transform: scale(1.12);
+  filter: blur(18px) saturate(1.2) brightness(0.28);
 }
 
-.hero-video-overlay {
+.hero-image-overlay {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 75% 35%, rgba(44, 62, 76, 0.35) 0%, rgba(7, 11, 16, 0.88) 70%),
-    linear-gradient(180deg, rgba(7, 11, 16, 0.65) 0%, rgba(7, 11, 16, 0.45) 50%, var(--bg-obsidian) 100%);
+    radial-gradient(circle at 20% 30%, rgba(44, 62, 76, 0.55) 0%, transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(67, 40, 28, 0.5) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(7, 11, 16, 0.72) 0%, rgba(7, 11, 16, 0.55) 50%, #070B10 100%);
   z-index: 1;
+}
+
+/* Subtle Islamic Geometric Lattice Overlay */
+.hero-islamic-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.18;
+  background-image:
+    radial-gradient(rgba(226, 184, 135, 0.45) 1px, transparent 1px),
+    radial-gradient(rgba(226, 184, 135, 0.25) 1px, transparent 1px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  pointer-events: none;
+}
+
+/* 2. Top Status & Badge Row */
+.hero-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.35rem;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #A7F3D0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 12px #10B981;
+  animation: livePulse 2s infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.65; }
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 4.8vw, 4.1rem);
+  line-height: 1.08;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+/* 3. Prophet Muhammad (ﷺ) Hadith Card Refinements */
+.hadith-glass-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(226, 184, 135, 0.07) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(226, 184, 135, 0.35);
+  border-left: 4px solid #E2B887;
+  border-radius: 18px;
+  padding: 1.35rem 1.65rem;
+  margin-bottom: 1.35rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 4. Parent-Friendly Mission & 3 Pillars Card */
+.parent-mission-card {
+  background: rgba(11, 18, 26, 0.76);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 1.45rem 1.6rem;
+  margin-bottom: 1.85rem;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.mission-lead {
+  color: #F1F5F9;
+  font-size: 0.98rem;
+  line-height: 1.68;
+  margin-bottom: 1.25rem;
+}
+
+.mission-lead strong {
+  color: var(--gold-bright, #F7D6A8);
+  font-weight: 700;
+}
+
+.parent-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.parent-pillar {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.parent-pillar:hover {
+  background: rgba(226, 184, 135, 0.1);
+  border-color: rgba(226, 184, 135, 0.35);
+  transform: translateY(-2px);
+}
+
+.pillar-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(226, 184, 135, 0.16);
+  color: #F7D6A8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.parent-pillar strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.86rem;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.parent-pillar span {
+  display: block;
+  font-size: 0.74rem;
+  color: #94A3B8;
+  margin-top: 2px;
+}
+
+.btn-text-link {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--gold-bright, #F7D6A8);
+  padding: 0.5rem 0.4rem;
+  align-self: center;
+}
+
+.btn-text-link:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+/* 5. Sacred Islamic Mihrab Arch 3D Showcase Card */
+.mihrab-arch-card {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  /* Sculpted Islamic Arch Top + Rounded Base */
+  border-radius: 210px 210px 28px 28px !important;
+  padding: 3.4rem 2.2rem 2.4rem !important;
+  background: linear-gradient(160deg, rgba(44, 62, 76, 0.55) 0%, rgba(13, 21, 30, 0.88) 60%, rgba(67, 40, 28, 0.45) 100%) !important;
+  border: 1.5px solid rgba(226, 184, 135, 0.35) !important;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.65),
+    inset 0 2px 20px rgba(247, 214, 168, 0.15) !important;
+}
+
+.floating-chip {
+  position: absolute;
+  top: 22px;
+  right: -14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(11, 18, 26, 0.9);
+  border: 1px solid rgba(226, 184, 135, 0.4);
+  color: #F7D6A8;
+  font-size: 0.76rem;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+  transform: translateZ(40px);
+}
+
+.arch-subtitle {
+  display: inline-block;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: #E2B887;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.campus-quick-box {
+  background: rgba(7, 11, 16, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0 1.35rem;
+  text-align: left;
+}
+
+.campus-quick-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.84rem;
+  color: #CBD5E1;
+  line-height: 1.45;
+}
+
+.campus-quick-item svg {
+  width: 18px;
+  height: 18px;
+  stroke: #E2B887;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   HERO RESPONSIVE BREAKPOINTS (Laptop, Tablet, Mobile)
+   ========================================================================== */
+
+/* Laptop (max-width: 1100px) */
+@media (max-width: 1100px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-visual-wrap {
+    order: -1; /* Places the sacred school emblem arch at the top on tablets/mobile */
+  }
+
+  .mihrab-arch-card {
+    max-width: 370px;
+    padding: 2.8rem 1.8rem 2rem !important;
+  }
+}
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-pro {
+    padding: 7.5rem 0 4rem;
+  }
+
+  .parent-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .floating-chip {
+    right: 10px;
+    top: 14px;
+  }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-badge-row {
+    gap: 0.5rem;
+  }
+
+  .status-pill,
+  .pro-badge {
+    font-size: 0.72rem;
+    padding: 0.38rem 0.8rem;
+  }
+
+  .hadith-glass-card,
+  .parent-mission-card {
+    padding: 1.15rem 1.2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .btn-text-link {
+    text-align: center;
+  }
 }
 
 /* Animated Sacred SVG Geometry in Hero Background */
@@ -985,7 +1448,138 @@ img {
   font-weight: 700;
   margin-bottom: 0.25rem;
 }
+/* ==========================================================================
+   PINTEREST-STYLE MASONRY GALLERY (style.css)
+   ========================================================================== */
 
+/* The Masonry Container using CSS Columns */
+.masonry-grid {
+  column-count: 4; /* 4 columns on desktop */
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+/* Individual Gallery Items */
+.masonry-item {
+  break-inside: avoid; /* Prevents items from splitting across columns */
+  margin-bottom: 1.5rem;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+}
+
+.masonry-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-pro);
+  border-color: var(--gold-primary);
+}
+
+/* Fluid Media Sizing */
+.masonry-item img,
+.masonry-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.7s var(--ease-apple);
+}
+
+.masonry-item:hover img,
+.masonry-item:hover video {
+  transform: scale(1.06); /* Smooth cinematic zoom on hover */
+}
+
+/* Video Play Indicator Badge */
+.media-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  background: rgba(7, 11, 16, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-bright);
+  z-index: 2;
+}
+
+.media-indicator svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Glassmorphic Gradient Overlay on Hover */
+.masonry-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(7, 11, 16, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.4s var(--ease-apple);
+  z-index: 3;
+}
+
+.masonry-item:hover .masonry-overlay {
+  opacity: 1; /* Shows on hover */
+}
+
+.masonry-tag {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #090D14;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-primary));
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 10px rgba(226, 184, 135, 0.3);
+}
+
+.masonry-overlay h4 {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Responsive Breakpoints for Masonry Grid --- */
+@media (max-width: 1200px) {
+  .masonry-grid { column-count: 3; }
+}
+
+@media (max-width: 860px) {
+  .masonry-grid { 
+    column-count: 2; 
+    column-gap: 1rem; 
+  }
+  .masonry-item { 
+    margin-bottom: 1rem; 
+  }
+}
+
+@media (max-width: 576px) {
+  .masonry-grid { 
+    column-count: 1; /* Single column for mobile */
+  }
+  .masonry-overlay {
+    opacity: 1; /* Always show text on mobile since hover is unavailable */
+    background: linear-gradient(180deg, transparent 50%, rgba(7, 11, 16, 0.85) 100%);
+  }
+}
 /* ==========================================================================
    CONTACT PAGE GLASS PANELS & FORM
    ========================================================================== */
@@ -1099,101 +1693,766 @@ textarea.pro-input {
   min-height: 130px;
   resize: vertical;
 }
+/* Islamic Geometry Overlay on Left Panel */
+.panel-geometry-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(226, 184, 135, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Elegant Divider */
+.islamic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+.islamic-divider span {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(226, 184, 135, 0.4), transparent);
+}
+.islamic-divider svg {
+  animation: pulseGlow 4s infinite alternate;
+}
+
+/* Animated Contact Rows */
+.animated-row {
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s var(--ease-apple);
+  border: 1px solid transparent;
+}
+.animated-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(226, 184, 135, 0.15);
+  transform: translateX(6px);
+}
+.pulse-hover {
+  transition: all 0.3s var(--ease-apple);
+}
+.animated-row:hover .pulse-hover {
+  background: var(--gold-primary);
+  color: #090D14;
+}
+.animated-row:hover .pulse-hover svg {
+  stroke: #090D14;
+}
+.gold-hover-link {
+  transition: color 0.3s ease;
+}
+.gold-hover-link:hover {
+  color: var(--gold-bright);
+  text-decoration: underline;
+}
+
+/* Trust Signature */
+.trust-signature {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold-primary);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Premium Form Styling */
+.form-panel-enhanced {
+  background: linear-gradient(145deg, rgba(13, 21, 30, 0.7) 0%, rgba(7, 11, 16, 0.9) 100%);
+}
+.required {
+  color: var(--gold-primary);
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+.pro-input.has-icon {
+  padding-left: 42px;
+}
+
+/* Input Focus Animations */
+.input-animation .pro-input {
+  border-bottom-width: 2px;
+}
+.input-animation .pro-input:focus {
+  background: rgba(255, 255, 255, 0.04);
+}
+.input-animation .pro-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+  color: var(--gold-bright);
+}
+
+/* Custom Select Dropdown Arrow */
+.select-wrapper::after {
+  content: '▼';
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  position: absolute;
+  right: 16px;
+  pointer-events: none;
+}
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Send Button Animation */
+.btn-send-animated {
+  width: 100%;
+  margin-top: 1rem;
+}
+.btn-send-animated:hover .send-icon {
+  transform: translate(4px, -4px);
+}
+
+/* Success Message Styling */
+.form-status-msg {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  animation: slideUpFade 0.4s ease-out;
+}
+.form-status-msg svg {
+  width: 20px;
+  height: 20px;
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ==========================================================================
+   PARENT-FRIENDLY LIGHT CONTACT SECTION (style.css)
+   ========================================================================== */
+
+/* Main Light Cards */
+.contact-light-panel {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: 0 15px 40px rgba(44, 62, 76, 0.08);
+  border: 1px solid rgba(44, 62, 76, 0.05);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s var(--ease-apple), box-shadow 0.4s var(--ease-apple);
+}
+
+.contact-light-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(44, 62, 76, 0.12);
+}
+
+/* Light Badges & Dividers */
+.light-badge {
+  background: rgba(44, 62, 76, 0.08) !important;
+  color: #2C3E4C !important;
+  border-color: rgba(44, 62, 76, 0.15) !important;
+}
+
+.light-divider span {
+  background: linear-gradient(90deg, transparent, rgba(44, 62, 76, 0.15), transparent) !important;
+}
+
+/* Accessible Contact Rows */
+.light-animated-row {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s var(--ease-apple);
+  border: 1px solid transparent;
+  background: #F8FAFC;
+  margin-bottom: 0.85rem;
+}
+
+.light-animated-row:hover {
+  background: #FFFFFF;
+  border-color: rgba(44, 62, 76, 0.15);
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(44, 62, 76, 0.05);
+}
+
+.light-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(226, 184, 135, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.light-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #43281C;
+  fill: none;
+  stroke-width: 2;
+}
+
+.light-animated-row:hover .light-icon {
+  background: var(--brand-slate);
+}
+
+.light-animated-row:hover .light-icon svg {
+  stroke: #FFFFFF;
+}
+
+.slate-hover-link {
+  transition: color 0.3s ease;
+}
+.slate-hover-link:hover {
+  color: var(--brand-slate) !important;
+  text-decoration: underline;
+}
+
+.light-signature {
+  border-top-color: rgba(44, 62, 76, 0.1) !important;
+  color: #64748B !important;
+}
+
+/* Light Form Inputs (High Contrast for Parents) */
+.light-input {
+  background: #F1F5F9 !important; /* Soft gray for input visibility */
+  border: 1px solid #CBD5E1 !important;
+  color: #1E293B !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 1rem 1.15rem !important;
+  font-weight: 500;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.light-input::placeholder {
+  color: #94A3B8 !important;
+  font-weight: 400;
+}
+
+.light-input:focus {
+  background: #FFFFFF !important;
+  border-color: var(--brand-slate) !important;
+  box-shadow: 0 0 0 4px rgba(44, 62, 76, 0.1) !important;
+}
+
+.input-animation .light-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon svg {
+  stroke: var(--brand-slate) !important;
+}
+
+.light-select-wrapper::after {
+  color: #475569 !important;
+  right: 18px !important;
+  font-size: 0.8rem !important;
+}
+
+/* Solid Brand Button */
+.btn-slate {
+  background: var(--brand-slate);
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 8px 20px rgba(44, 62, 76, 0.2);
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+  border-radius: var(--radius-pill);
+}
+
+.btn-slate:hover {
+  background: var(--brand-brown);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(67, 40, 28, 0.25);
+  color: #ffffff;
+}
+
+/* Friendly Success Message */
+.light-success-msg {
+  background: #F0FDF4 !important;
+  border-color: #BBF7D0 !important;
+  color: #166534 !important;
+}
 
 /* ==========================================================================
-   APPLE-PRO FOOTER
+   BESPOKE ARCHITECTURAL FOOTER & SOCIAL HANDLES (style.css)
    ========================================================================== */
-.site-footer {
-  background: rgba(5, 8, 12, 0.95);
-  border-top: 1px solid var(--glass-border);
-  padding: 5rem 0 2.25rem;
+
+.pro-footer {
+  position: relative;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(44, 62, 76, 0.28) 0%, transparent 50%),
+    radial-gradient(circle at 85% 100%, rgba(67, 40, 28, 0.24) 0%, transparent 50%),
+    #05080C;
+  padding: 4.5rem 0 2.25rem;
   margin-top: auto;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-grid {
+/* Top Specular Gold Line */
+.footer-top-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(85%, 960px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(226, 184, 135, 0.65), transparent);
+  box-shadow: 0 2px 25px rgba(226, 184, 135, 0.35);
+}
+
+/* Pre-Footer Parent CTA Strip */
+.footer-cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  margin-bottom: 4rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(19, 30, 42, 0.78) 0%, rgba(44, 62, 76, 0.35) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 184, 135, 0.22);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.footer-cta-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: var(--gold-bright, #F7D6A8);
+  margin-bottom: 0.35rem;
+}
+
+.footer-cta-text h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.footer-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* Main Footer Grid */
+.pro-footer .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr;
-  gap: 2.5rem;
-  padding-bottom: 3.25rem;
-  border-bottom: 1px solid var(--glass-border);
+  grid-template-columns: 1.45fr 0.85fr 0.95fr 1.25fr;
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-col h4 {
-  font-size: 1.08rem;
-  color: var(--gold-bright);
-  margin-bottom: 1.25rem;
+.footer-logo-link {
+  margin-bottom: 1.1rem;
+  display: inline-flex;
 }
 
-.footer-links li,
-.footer-contact li {
-  margin-bottom: 0.7rem;
-  color: var(--text-secondary);
-  font-size: 0.92rem;
+.footer-motto {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--gold-bright, #F7D6A8);
+  margin-bottom: 1.15rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--gold-primary, #E2B887);
 }
 
-.footer-links a:hover {
-  color: var(--gold-bright);
-  padding-left: 6px;
+.footer-trust-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: 1.5rem;
 }
 
-.footer-bottom {
+.trust-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-primary, #E2B887);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.footer-trust-badge strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  color: #F8FAFC;
+}
+
+.footer-trust-badge span {
+  display: block;
+  font-size: 0.78rem;
+  color: #94A3B8;
+}
+
+/* Clickable Social Handles Dock (Instagram, YouTube, Facebook) */
+.footer-social-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.social-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: #64748B;
+  font-weight: 700;
+}
+
+.social-Dock {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #CBD5E1;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tooltip above social icon */
+.social-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: #0F172A;
+  color: #F8FAFC;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.28rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.social-btn:hover .social-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.social-btn:hover svg {
+  transform: scale(1.14);
+}
+
+/* Brand-Authentic Hover Glows */
+.social-ig:hover {
+  color: #FFFFFF;
+  border-color: #E1306C;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  box-shadow: 0 10px 24px -4px rgba(225, 48, 108, 0.55);
+  transform: translateY(-4px);
+}
+
+.social-yt:hover {
+  color: #FFFFFF;
+  border-color: #FF0000;
+  background: linear-gradient(135deg, #FF0000 0%, #B30000 100%);
+  box-shadow: 0 10px 24px -4px rgba(255, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+.social-fb:hover {
+  color: #FFFFFF;
+  border-color: #1877F2;
+  background: linear-gradient(135deg, #1877F2 0%, #0C5DC7 100%);
+  box-shadow: 0 10px 24px -4px rgba(24, 119, 242, 0.5);
+  transform: translateY(-4px);
+}
+
+/* Column Headings & Links */
+.footer-heading {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: #FFFFFF;
+  margin-bottom: 1.35rem;
+  position: relative;
+  padding-bottom: 0.65rem;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold-primary, #E2B887);
+}
+
+.pro-footer .footer-links li {
+  margin-bottom: 0.78rem;
+}
+
+.pro-footer .footer-links a {
+  color: #94A3B8;
+  font-size: 0.93rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.pro-footer .footer-links a::before {
+  content: '›';
+  color: var(--gold-primary, #E2B887);
+  font-weight: 700;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.3s ease;
+}
+
+.pro-footer .footer-links a:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.pro-footer .footer-links a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Column 4: Contact Cards */
+.footer-contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.footer-contact-cards li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.fc-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(226, 184, 135, 0.1);
+  border: 1px solid rgba(226, 184, 135, 0.22);
+  color: var(--gold-bright, #F7D6A8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fc-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.fc-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748B;
+  font-weight: 700;
+  margin-bottom: 1px;
+}
+
+.footer-contact-cards p,
+.footer-contact-cards a {
+  color: #CBD5E1;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.footer-contact-cards a:hover {
+  color: var(--gold-bright, #F7D6A8);
+}
+
+/* Bottom Bar & Zyrac Pill Badge */
+.pro-footer .footer-bottom {
   padding-top: 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
-  color: var(--text-muted);
-  font-size: 0.86rem;
+  gap: 1.25rem;
+  font-size: 0.88rem;
+  color: #64748B;
 }
-/* ==========================================================================
-   ZYRAC BRAND POWERED-BY FOOTER STYLING
-   ========================================================================== */
+
+.footer-copyright strong {
+  color: #CBD5E1;
+  font-weight: 600;
+}
+
 .footer-powered {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text-secondary);
-  font-weight: 500;
+  gap: 0.65rem;
 }
 
-.zyrac-brand-link {
+.powered-text {
+  font-size: 0.82rem;
+  color: #94A3B8;
+}
+
+.zyrac-brand-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  color: var(--text-primary);
+  gap: 0.5rem;
+  padding: 0.42rem 0.9rem 0.42rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  transition: all 0.3s var(--ease-apple);
+  font-size: 0.88rem;
+  letter-spacing: 0.3px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.zyrac-brand-link img {
-  height: 20px;
-  width: auto;
+.zyrac-brand-pill img {
+  width: 22px;
+  height: 22px;
   object-fit: contain;
-  border-radius: 4px;
-  transition: transform 0.3s var(--ease-apple);
+  border-radius: 5px;
+  background: #FFFFFF;
+  padding: 2px;
+  transition: transform 0.35s ease;
 }
 
-.zyrac-brand-link:hover {
-  color: var(--gold-bright);
+.zyrac-arrow {
+  width: 14px;
+  height: 14px;
+  opacity: 0.65;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.zyrac-brand-link:hover img {
-  transform: scale(1.1);
+.zyrac-brand-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold-primary, #E2B887);
+  color: var(--gold-bright, #F7D6A8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Scroll Reveal Transitions */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-apple), transform 0.8s var(--ease-apple);
+.zyrac-brand-pill:hover img {
+  transform: rotate(-6deg) scale(1.08);
 }
 
-.reveal.visible {
+.zyrac-brand-pill:hover .zyrac-arrow {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(2px, -2px);
 }
 
+/* ==========================================================================
+   FOOTER RESPONSIVE BREAKPOINTS (Laptop, Tablet, Mobile)
+   ========================================================================== */
+
+/* Laptop (max-width: 1080px) */
+@media (max-width: 1080px) {
+  .pro-footer .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .footer-cta-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.85rem;
+  }
+
+  .footer-cta-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet & Mobile Phones (max-width: 640px) */
+@media (max-width: 640px) {
+  .pro-footer {
+    padding: 3.5rem 0 2rem;
+  }
+
+  .footer-cta-strip {
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .footer-cta-actions {
+    flex-direction: column;
+  }
+
+  .footer-cta-actions .btn {
+    width: 100%;
+  }
+
+  .pro-footer .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .pro-footer .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS (Mobile, Tablet, Laptop, Desktop)
    ========================================================================== */
