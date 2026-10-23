@@ -8,16 +8,15 @@
 </head>
 <body>
 
- <!-- Floating Apple-Pro Glass Island Header -->
+ <!-- ========================================================================
+       ZERO-JUMP SLIDING PILL HEADER (Copy this <header> to all 5 pages)
+       ======================================================================== -->
   <header class="site-header">
     <div class="container">
       <nav class="nav-island premium-glass-island">
-        <!-- Animated Background Glow Border -->
-        <div class="island-glow-border"></div>
-
         <a href="index.html" class="brand-logo">
           <div class="logo-frame shine-effect">
-            <img src="Logo.jpg" alt="Suffah English School Logo" />
+            <img src="Logo.jpg" alt="Suffah English School Logo"[cite: 1] />
           </div>
           <div class="brand-text">
             <span class="brand-name">Suffah English School</span>
@@ -25,47 +24,49 @@
           </div>
         </a>
 
-        <!-- Upgraded Animated Hamburger -->
         <button class="hamburger premium-hamburger" aria-label="Toggle Menu" aria-expanded="false">
           <span class="bar top-bar"></span>
           <span class="bar mid-bar"></span>
           <span class="bar bot-bar"></span>
         </button>
 
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="mainNavMenu">
+          <!-- Sliding Active Pill Backdrop (Controlled by JS) -->
+          <span class="nav-sliding-pill" id="navSlidingPill"></span>
+
           <li>
-            <a href="index.html" class="nav-link active">
+            <a href="index.html" class="nav-link" data-page="index.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              Home
+              <span>Home</span>
             </a>
           </li>
           <li>
-            <a href="about.html" class="nav-link">
+            <a href="about.html" class="nav-link" data-page="about.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              About
+              <span>About</span>
             </a>
           </li>
           <li>
-            <a href="blog.html" class="nav-link">
+            <a href="blog.html" class="nav-link" data-page="blog.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Blog
+              <span>Blog</span>
             </a>
           </li>
           <li>
-            <a href="gallery.html" class="nav-link">
+            <a href="gallery.html" class="nav-link" data-page="gallery.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Gallery
+              <span>Gallery</span>
             </a>
           </li>
           <li>
-            <a href="contact.html" class="nav-link">
+            <a href="contact.html" class="nav-link" data-page="contact.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Contact
+              <span>Contact</span>
             </a>
           </li>
           <li>
             <a href="contact.html" class="nav-cta pulse-cta">
-              Admissions
+              <span>Admissions</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </li>
@@ -74,105 +75,105 @@
     </div>
   </header>
 
-  <!-- Page Hero -->
-  <section class="page-hero">
+  <!-- ========================================================================
+       PAGE HERO WITH AUTO-ROTATING GALLERY MEDIA SHOWCASE
+       ======================================================================== -->
+  <section class="page-hero gallery-hero-showcase">
+    <!-- Ambient Floating School SVG Graphics -->
+    <svg class="hero-school-deco deco-left" viewBox="0 0 120 120" fill="none">
+      <circle cx="60" cy="60" r="52" stroke="#B87D3B" stroke-width="1.2" stroke-dasharray="6 6"/>
+      <polygon points="60,12 72,44 106,44 78,64 88,98 60,78 32,98 42,64 14,44 48,44" stroke="#2C3E4C" stroke-width="1.2" fill="rgba(184,125,59,0.06)"/>
+    </svg>
+    <svg class="hero-school-deco deco-right" viewBox="0 0 120 120" fill="none">
+      <rect x="20" y="20" width="80" height="80" rx="14" stroke="#2C3E4C" stroke-width="1.2" transform="rotate(15 60 60)"/>
+      <rect x="20" y="20" width="80" height="80" rx="14" stroke="#B87D3B" stroke-width="1.2" transform="rotate(60 60 60)"/>
+    </svg>
+
     <div class="container reveal">
       <span class="pro-badge">Visual Showcase</span>
-      <h1>Campus <span class="text-gradient-gold">Gallery & Moments</span></h1>
-      <p>Explore classrooms, interfaith harmony symposiums, and youth empowerment events at Suffah English School.</p>
+      <h1>Campus <span class="text-gradient-gold">Gallery &amp; Moments</span></h1>
+      <p>Explore classrooms, annual functions, sports day championships, and campus life at Suffah English School.</p>
+    </div>
+
+    <!-- Auto-Rotating Infinite Filmstrip Carousel (Automatically populated from gallery below) -->
+    <div class="hero-carousel-viewport">
+      <div class="hero-carousel-track" id="heroAutoCarousel">
+        <!-- JS automatically clones and rotates all photos & videos from the masonry grid here -->
+      </div>
     </div>
   </section>
 
-  <!-- Interactive Pinterest-Style Masonry Gallery -->
+  <!-- ========================================================================
+       PURE 100% MEDIA PINTEREST MASONRY GALLERY (FOLDER-BASED FILTERS)
+       ======================================================================== -->
   <section class="section-padding">
     <div class="container">
       
-      <!-- Filter Bar -->
+      <!-- Folder-Based Filter Bar -->
       <div class="filter-bar reveal">
-        <button class="filter-btn active" data-filter="all">All Highlights</button>
+        <button class="filter-btn active" data-filter="all">All Moments</button>
+        <button class="filter-btn" data-filter="annualfunction">Annual Function</button>
+        <button class="filter-btn" data-filter="sportsday">Sports Day</button>
         <button class="filter-btn" data-filter="academics">Academics</button>
-        <button class="filter-btn" data-filter="harmony">Harmony & Events</button>
-        <button class="filter-btn" data-filter="campus">Campus & Trust</button>
+        <button class="filter-btn" data-filter="campus">Campus &amp; Trust</button>
       </div>
 
-      <!-- Masonry Grid Layout -->
-      <div class="masonry-grid">
+      <!-- Pure Media Masonry Grid (No text or SVG overlays covering photos/videos) -->
+      <div class="masonry-grid" id="schoolMasonryGrid">
         
-        <!-- Item 1: Portrait Photo -->
-        <div class="masonry-item reveal" data-category="academics">
-          <img src="gallery/photo-1.jpg" alt="Academic Excellence at SES" loading="lazy" />
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Academics</span>
-            <h4>Interactive Science Lab Session</h4>
-          </div>
+        <!-- ANNUAL FUNCTION FOLDER (gallery/annualfunction/...) -->
+        <div class="masonry-item reveal" data-category="annualfunction">
+          <img src="gallery/annualfunction/photo-1.jpg" alt="Annual Function at Suffah English School" loading="lazy" />
         </div>
 
-        <!-- Item 2: Vertical/Square Video -->
+        <div class="masonry-item reveal" data-category="annualfunction">
+          <video src="gallery/annualfunction/video-1.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <div class="masonry-item reveal" data-category="annualfunction">
+          <img src="gallery/annualfunction/photo-2.jpg" alt="Annual Function Stage Performance" loading="lazy" />
+        </div>
+
+        <!-- SPORTS DAY FOLDER (gallery/sportsday/...) -->
+        <div class="masonry-item reveal" data-category="sportsday">
+          <img src="gallery/sportsday/photo-1.jpg" alt="Sports Day Track Event" loading="lazy" />
+        </div>
+
+        <div class="masonry-item reveal" data-category="sportsday">
+          <video src="gallery/sportsday/video-1.mp4" autoplay loop muted playsinline></video>
+        </div>
+
+        <div class="masonry-item reveal" data-category="sportsday">
+          <img src="gallery/sportsday/photo-2.jpg" alt="Sports Day Trophy Distribution" loading="lazy" />
+        </div>
+
+        <!-- ACADEMICS FOLDER (gallery/academics/...) -->
+        <div class="masonry-item reveal" data-category="academics">
+          <img src="gallery/academics/photo-1.jpg" alt="Interactive Classroom Session" loading="lazy" />
+        </div>
+
+        <div class="masonry-item reveal" data-category="academics">
+          <img src="gallery/academics/photo-2.jpg" alt="Science & Computer Lab" loading="lazy" />
+        </div>
+
+        <!-- CAMPUS & TRUST FOLDER (gallery/campus/...) -->
         <div class="masonry-item reveal" data-category="campus">
-          <!-- Video set to autoplay, loop, and mute for a seamless aesthetic -->
-          <video src="gallery/photo-1.jpg" autoplay loop muted playsinline></video>
-          <!-- Play Icon Indicator -->
-          <div class="media-indicator">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          </div>
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Campus</span>
-            <h4>Campus Life & Friday Prayers</h4>
-          </div>
+          <img src="gallery/campus/photo-1.jpg" alt="Suffah English School Campus" loading="lazy" />
         </div>
 
-        <!-- Item 3: Landscape Photo -->
-        <div class="masonry-item reveal" data-category="harmony">
-          <img src="gallery/photo-2.jpg" alt="Interfaith Harmony Event" loading="lazy" />
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Harmony</span>
-            <svg class="media-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <h4>Peace & Tolerance Assembly</h4>
-          </div>
-        </div>
-
-        <!-- Item 4: Photo -->
-        <div class="masonry-item reveal" data-category="academics">
-          <img src="gallery/photo-3.jpg" alt="English Debate Competition" loading="lazy" />
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Academics</span>
-            <h4>Annual Debate Competition</h4>
-          </div>
-        </div>
-
-        <!-- Item 5: High-Res Photo -->
         <div class="masonry-item reveal" data-category="campus">
-          <img src="gallery/photo-4.jpg" alt="Jamiyat Welfare Trust Drive" loading="lazy" />
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Trust</span>
-            <h4>Youth Welfare Distribution Drive</h4>
-          </div>
-        </div>
-
-        <!-- Item 6: Another Video -->
-        <div class="masonry-item reveal" data-category="harmony">
-          <video src="gallery/video-2.mp4" autoplay loop muted playsinline></video>
-          <div class="media-indicator">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-          </div>
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Harmony</span>
-            <h4>Community Outreach Program</h4>
-          </div>
-        </div>
-
-        <!-- Item 7: Portrait Photo -->
-        <div class="masonry-item reveal" data-category="academics">
-          <img src="gallery/photo-5.jpg" alt="Student Reading" loading="lazy" />
-          <div class="masonry-overlay">
-            <span class="masonry-tag">Academics</span>
-            <h4>Library & Literature Exploration</h4>
-          </div>
+          <video src="gallery/campus/video-1.mp4" autoplay loop muted playsinline></video>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- Full-Screen Lightbox Popup Modal (Opens when any photo/video is clicked) -->
+  <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close Preview">&times;</button>
+    <div class="lightbox-Stage" id="lightboxStage"></div>
+  </div>
 
   <!-- ========================================================================
        BESPOKE ARCHITECTURAL FOOTER (Senior Designer Edition)

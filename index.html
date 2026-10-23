@@ -72,16 +72,15 @@
 </head>
 <body>
 
-  <!-- Floating Apple-Pro Glass Island Header -->
+ <!-- ========================================================================
+       ZERO-JUMP SLIDING PILL HEADER (Copy this <header> to all 5 pages)
+       ======================================================================== -->
   <header class="site-header">
     <div class="container">
       <nav class="nav-island premium-glass-island">
-        <!-- Animated Background Glow Border -->
-        <div class="island-glow-border"></div>
-
         <a href="index.html" class="brand-logo">
           <div class="logo-frame shine-effect">
-            <img src="Logo.jpg" alt="Suffah English School Logo" />
+            <img src="Logo.jpg" alt="Suffah English School Logo"[cite: 1] />
           </div>
           <div class="brand-text">
             <span class="brand-name">Suffah English School</span>
@@ -89,47 +88,49 @@
           </div>
         </a>
 
-        <!-- Upgraded Animated Hamburger -->
         <button class="hamburger premium-hamburger" aria-label="Toggle Menu" aria-expanded="false">
           <span class="bar top-bar"></span>
           <span class="bar mid-bar"></span>
           <span class="bar bot-bar"></span>
         </button>
 
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="mainNavMenu">
+          <!-- Sliding Active Pill Backdrop (Controlled by JS) -->
+          <span class="nav-sliding-pill" id="navSlidingPill"></span>
+
           <li>
-            <a href="index.html" class="nav-link active">
+            <a href="index.html" class="nav-link" data-page="index.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              Home
+              <span>Home</span>
             </a>
           </li>
           <li>
-            <a href="about.html" class="nav-link">
+            <a href="about.html" class="nav-link" data-page="about.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              About
+              <span>About</span>
             </a>
           </li>
           <li>
-            <a href="blog.html" class="nav-link">
+            <a href="blog.html" class="nav-link" data-page="blog.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Blog
+              <span>Blog</span>
             </a>
           </li>
           <li>
-            <a href="gallery.html" class="nav-link">
+            <a href="gallery.html" class="nav-link" data-page="gallery.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Gallery
+              <span>Gallery</span>
             </a>
           </li>
           <li>
-            <a href="contact.html" class="nav-link">
+            <a href="contact.html" class="nav-link" data-page="contact.html">
               <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              Contact
+              <span>Contact</span>
             </a>
           </li>
           <li>
             <a href="contact.html" class="nav-cta pulse-cta">
-              Admissions
+              <span>Admissions</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </li>
@@ -138,47 +139,18 @@
     </div>
   </header>
 
-<!-- ========================================================================
-       MASTERPIECE ISLAMIC & PARENT-CENTRIC HERO SECTION
+  <!-- ========================================================================
+       HERO SECTION WITH BESPOKE MIHRAB ARCH YOUTUBE PORTAL & CINEMA MODAL
        ======================================================================== -->
   <section class="hero-pro">
-    <!-- 1. Responsive Background Image Layer + Studio Lighting Vignette -->
-    <div class="hero-image-wrapper">
-      <img 
-        src="Logo.jpg" 
-        alt="Suffah English School Campus Background" 
-        class="hero-bg-image"
-        loading="eager" 
-        fetchpriority="high"
-      />
-      <div class="hero-image-overlay"></div>
-      <div class="hero-islamic-pattern"></div>
-    </div>
-
-    <!-- 2. Ambient Rotating Islamic Star Mandala (Right Backdrop) -->
-    <svg class="hero-svg-mandala" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="url(#heroGoldGrad)" stroke-width="0.75">
-        <circle cx="120" cy="120" r="110" stroke-dasharray="4 4" />
-        <circle cx="120" cy="120" r="92" />
-        <rect x="44" y="44" width="152" height="152" transform="rotate(0 120 120)" />
-        <rect x="44" y="44" width="152" height="152" transform="rotate(45 120 120)" />
-        <rect x="44" y="44" width="152" height="152" transform="rotate(22.5 120 120)" />
-        <rect x="44" y="44" width="152" height="152" transform="rotate(67.5 120 120)" />
-        <circle cx="120" cy="120" r="46" />
-      </g>
-      <defs>
-        <linearGradient id="heroGoldGrad" x1="0" y1="0" x2="240" y2="240" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F7D6A8" />
-          <stop offset="0.5" stop-color="#E2B887" />
-          <stop offset="1" stop-color="#43281C" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div class="hero-islamic-pattern"></div>
 
     <div class="container hero-container">
       
-      <!-- LEFT COLUMN: Parent-Friendly Story, Hadith & Clear Highlights -->
+      <!-- LEFT COLUMN: Parent Story, Hadith & Action Buttons -->
       <div class="hero-content reveal">
+       
+
         <h1 class="hero-title">
           <span class="text-gradient-gold">Suffah English School</span>
         </h1>
@@ -187,9 +159,8 @@
           "Education is key, if its success you wish to see."
         </div>
 
-        <!-- Prophet Muhammad (ﷺ) Illuminated Hadith Showcase -->
+        <!-- Prophet Muhammad (ﷺ) Hadith Showcase -->
         <div class="hadith-glass-card">
-          <div class="hadith-corner-ornament"></div>
           <div class="hadith-header">
             <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6.4-4.8-6.4 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
             <span>Sacred Wisdom of Prophet Muhammad (ﷺ)</span>
@@ -197,24 +168,23 @@
           <blockquote class="hadith-quote">
             “Seeking knowledge is an obligation upon every Muslim, and whoever treads a path in search of knowledge, Allah will make easy for him the path to Paradise.”
           </blockquote>
-          <div class="hadith-source">— Prophet Muhammad (Peace Be Upon Him) • Sunan Ibn Majah &amp; Sahih Muslim</div>
+          <div class="hadith-source">— Prophet Muhammad (Peace Be Upon Him) • Sunan Ibn Majah</div>
         </div>
 
-        <!-- High-Contrast Glass Mission Box + 3 Easy Parent Highlights -->
+        <!-- Parent-Friendly Mission & 3 Pillars -->
         <div class="parent-mission-card">
           <p class="mission-lead">
-            We <strong>JAMIYAT WELFARE FOUNDATION TRUST</strong> (Managed By Molana Arshad Madni) are dedicated to promoting peace, tolerance, interfaith harmony, and quality education—engaging young Muslims in religious moderation, development, empowerment, social welfare, and human rights.
+            We <strong>JAMIYAT WELFARE FOUNDATION TRUST</strong> (Managed By Molana Arshad Madni) promote peace, tolerance, interfaith harmony, and quality English education—engaging young Muslims in religious moderation, development, empowerment, social welfare, and human rights.
           </p>
 
-          <!-- 3 Quick Scannable Pillars for Parents -->
           <div class="parent-pillars-grid">
             <div class="parent-pillar">
               <div class="pillar-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
               </div>
               <div>
-                <strong>Modern English</strong>
-                <span>Strong Academic Foundation</span>
+                <strong>English Medium</strong>
+                <span>Modern Curriculum</span>
               </div>
             </div>
 
@@ -223,8 +193,8 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6.4-4.8-6.4 4.8 2.4-7.2-6-4.8h7.6z"/></svg>
               </div>
               <div>
-                <strong>Islamic &amp; Moral Values</strong>
-                <span>Piety, Adab &amp; Moderation</span>
+                <strong>Islamic Values</strong>
+                <span>Piety &amp; Character</span>
               </div>
             </div>
 
@@ -233,65 +203,76 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <strong>Safe Environment</strong>
-                <span>Caring Mentorship &amp; Welfare</span>
+                <strong>Caring Campus</strong>
+                <span>Dariyapur, Ahmedabad</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Call-To-Action Buttons for Parents -->
         <div class="hero-actions">
           <a href="contact.html" class="btn btn-gold">
             <span>Apply for Admission</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="tel:9374775313" class="btn btn-glass">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform:none;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>Call: 9374775313</span>
-          </a>
-          <a href="about.html" class="btn-text-link">Discover Our 6 Pillars &rarr;</a>
+          <button type="button" class="btn btn-glass open-video-modal-btn" id="heroWatchBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="color:#43281C; transform:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Watch School Video</span>
+          </button>
         </div>
-
       </div>
 
-      <!-- RIGHT COLUMN: Sacred Islamic Mihrab Arch 3D Showcase Card -->
+      <!-- RIGHT COLUMN: Unique Sculpted Mihrab Arch YouTube Video Portal -->
       <div class="hero-visual-wrap reveal">
-        <div class="pro-3d-card mihrab-arch-card">
-          
-          <!-- Floating Glass Badge Top-Left -->
-          <div class="floating-chip chip-top">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F7D6A8" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <span>100% Holistic Growth</span>
-          </div>
+        <div class="mihrab-video-portal" id="mihrabVideoPortal">
 
-          <!-- Sacred Arch Inner Border SVG -->
-          <div class="emblem-halo">
-            <svg class="emblem-ring-svg" viewBox="0 0 200 200" fill="none">
-              <circle cx="100" cy="100" r="94" stroke="#E2B887" stroke-width="1.2" stroke-dasharray="6 6" />
-              <rect x="32" y="32" width="136" height="136" stroke="rgba(247,214,168,0.28)" stroke-width="1" transform="rotate(45 100 100)" />
-              <rect x="32" y="32" width="136" height="136" stroke="rgba(247,214,168,0.28)" stroke-width="1" />
-            </svg>
-            <div class="emblem-logo-box">
-              <img src="Logo.jpg" alt="Suffah English School Official Emblem" />
+          <!-- Floating School Emblem Crest Badge (Top Left) -->
+          <div class="portal-crest-badge">
+            <img src="Logo.jpg" alt="Suffah English School Logo"[cite: 1] />
+            <div>
+              <strong>SES Campus</strong>
+              <span>Official Film</span>
             </div>
           </div>
 
-          <span class="arch-subtitle">Jamiyat Welfare Foundation Trust</span>
-          <h3>Suffah English School</h3>
+          <!-- Floating Live Status Chip (Top Right) -->
+          <div class="portal-live-chip">
+            <span class="pulse-red-dot"></span>
+            <span>HD Campus Tour</span>
+          </div>
 
-          <!-- Clear Campus Location Box for Parents -->
-          <div class="campus-quick-box">
-            <div class="campus-quick-item">
+          <!-- The Sculpted Islamic Arch Video Window -->
+          <div class="mihrab-arch-window">
+            <!-- Embedded YouTube Live Silent Preview -->
+            <div class="arch-video-frame">
+              <iframe 
+                src="https://www.youtube.com/embed/ec_1Gl5H5m4?autoplay=1&mute=1&loop=1&playlist=ec_1Gl5H5m4&controls=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&si=D7wruvLHnaGHt35M" 
+                title="Suffah English School Campus Video Preview"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <!-- Interactive Glass Play Trigger Overlay -->
+            <div class="arch-glass-overlay" id="archPlayTrigger" role="button" tabindex="0" aria-label="Play Full Suffah English School Video with Sound">
+              <div class="sonic-play-orb">
+                <span class="orb-ring ring-1"></span>
+                <span class="orb-ring ring-2"></span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8 5 19 12 8 19 8 5"/></svg>
+              </div>
+              <span class="play-caption">Tap to Watch Full Video with Sound</span>
+            </div>
+          </div>
+
+          <!-- Bottom Arch Caption Bar -->
+          <div class="portal-footer-bar">
+            <div class="portal-location">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>Dandiyawad, Opp. Peer Khum's Masjid, Dariyapur, Ahmedabad - 380001</span>
+              <span>Dandiyawad, Dariyapur • Ahmedabad</span>
             </div>
-          </div>
-
-          <div class="pro-pill-row">
-            <span class="pro-mini-pill">Peace &amp; Harmony</span>
-            <span class="pro-mini-pill">Academic Excellence</span>
-            <span class="pro-mini-pill">Moral Piety</span>
+            <span class="portal-duration">YouTube HD</span>
           </div>
 
         </div>
@@ -299,6 +280,28 @@
 
     </div>
   </section>
+
+  <!-- ========================================================================
+       FULL-SCREEN CINEMA VIDEO MODAL (Opens with Sound on Click)
+       ======================================================================== -->
+  <div class="video-cinema-modal" id="videoCinemaModal" aria-hidden="true">
+    <div class="cinema-backdrop" id="cinemaBackdrop"></div>
+    <div class="cinema-dialog">
+      <div class="cinema-topbar">
+        <div class="cinema-brand">
+          <img src="Logo.jpg" alt="SES"[cite: 1] />
+          <span>Suffah English School — Official Campus Showcase</span>
+        </div>
+        <button type="button" class="cinema-close-btn" id="cinemaCloseBtn" aria-label="Close Video">
+          <span>Close</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="cinema-aspect-box" id="cinemaIframeContainer">
+        <!-- High-Definition YouTube Player with Sound injected here on click -->
+      </div>
+    </div>
+  </div>
 
   <!-- Bento Grid: The 6 Distinctive Characteristics -->
   <section class="section-padding">
